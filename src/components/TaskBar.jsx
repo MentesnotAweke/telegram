@@ -1,32 +1,37 @@
 // components/TaskBar.jsx
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link for navigation
 import { GoHome } from "react-icons/go";
 import { BiTask } from "react-icons/bi";
 import { FaUserFriends } from "react-icons/fa";
 import { CiWallet } from "react-icons/ci";
-import { LiaUserFriendsSolid } from "react-icons/lia";
-import { Link } from "react-router-dom";
 
 const TaskBar = () => {
   return (
-    <div className="bg-black w-screen h-screen">
-      <div className="fixed bottom-2 left-1/2 transform -translate-x-1/2 w-[calc(100%-2rem)] max-w-xl flex justify-around items-center z-50 text-xs">
-        <div className="text-center text-gray-200 w-1/5 m-1 p-2 rounded-2xl">
+    <div className="fixed bottom-0 left-0 w-full bg-black text-xs z-50"> {/* Ensure taskbar is fixed at the bottom */}
+      <div className="flex justify-around items-center p-2">
+        {/* Home */}
+        <Link to="/" className="text-center text-gray-200 w-1/5">
           <GoHome className="w-8 h-8 mx-auto" />
           <p>Home</p>
-        </div>
-        <div className="text-center text-gray-200 w-1/5 m-1 p-2 rounded-2xl">
+        </Link>
+
+        {/* Task */}
+        <Link to="/task" className="text-center text-gray-200 w-1/5">
           <BiTask className="w-7 h-7 mx-auto" />
           <p>Task</p>
-        </div>
-        <div className="text-center text-gray-200 w-1/5 m-1 p-2 rounded-2xl">
-          <LiaUserFriendsSolid className="w-8 h-8 mx-auto" />
-          <Link to="/friends"></Link>
-          <span>Friends</span>
-        </div>
-        <div className="text-center text-gray-200 w-1/5 m-1 p-2 rounded-2xl">
+        </Link>
+
+        {/* Friends */}
+        <Link to="/friends" className="text-center text-gray-200 w-1/5">
+          <FaUserFriends className="w-8 h-8 mx-auto" />
+          <p>Friends</p>
+        </Link>
+
+        {/* Wallet (You can implement a Wallet page in the future) */}
+        <div className="text-center text-gray-200 w-1/5">
           <CiWallet className="w-8 h-8 mx-auto" />
-          <span>Wallet</span>
+          <p>Wallet</p>
         </div>
       </div>
     </div>
