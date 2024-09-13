@@ -1,32 +1,20 @@
-import "./App.css";
-import loading from "./components/loading";
-import { GoHome } from "react-icons/go";
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Friends from "./pages/Friends";
+import Task from "./pages/Task";
+import LoadingPage from "./components/LoadingPage";
 
-import { FaUserFriends } from "react-icons/fa";
-import { CiWallet } from "react-icons/ci";
-import { BiTask } from "react-icons/bi";
 function App() {
   return (
-    <div className="bg-black w-screen h-screen">
-      <div className="fixed bottom-2 left-1/2 transform -translate-x-1/2 w-[calc(100%-2rem)] max-w-xl  flex justify-around items-center z-50  text-xs">
-        <div className="text-center text-gray-200 w-1/5  m-1 p-2 rounded-2xl">
-          <GoHome className="w-8 h-8 mx-auto" />
-          <p>Home</p>
-        </div>
-        <div className="text-center text-gray-200 w-1/5  m-1 p-2 rounded-2xl">
-          <BiTask className="w-7 h-7 mx-auto" />
-          <p>Task</p>
-        </div>
-        <div className="text-center  text-gray-200  w-1/5  m-1 p-2 rounded-2xl">
-          <FaUserFriends className="w-8 h-8 mx-auto" />
-          <span>Firends</span>
-        </div>
-        <div className="text-center  text-gray-200  w-1/5  m-1 p-2 rounded-2xl">
-          <CiWallet className="w-8 h-8 mx-auto" />
-          <span>wallet</span>
-        </div>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/friends" element={<Friends />} />
+        <Route path="/task" element={<Task />} />
+      </Routes>
+    </Router>
   );
 }
 
